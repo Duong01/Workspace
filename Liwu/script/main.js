@@ -29,7 +29,7 @@ function showPasswordPrompt() {
         confirmButtonText: 'Xác nhận',
         cancelButtonText: 'Hủy',
         preConfirm: (password) => {
-            if (password !== '0204') { // Đổi mật khẩu mong muốn tại đây
+            if (password !== '3001') { // Đổi mật khẩu mong muốn tại đây
                 Swal.showValidationMessage('Sai mất rùi, nhập lại nha!');
             }
         }
