@@ -135,18 +135,18 @@ const animationTimeline = () => {
             opacity: 0,
             y: -150
         },
-    "+=1")
+    "+=0.1")
     
     .staggerFromTo(
         ".baloons img",
-        2.5, {
+        2.1, {
             opacity: 0.9,
             y: 1400,
         }, {
             opacity: 1,
             y: -1000,
         },
-        0.2
+        0.1
     )
     .from(
         ".profile-picture",
@@ -222,7 +222,7 @@ const animationTimeline = () => {
         0.5, {
             rotation: 90,
         },
-        "+=1"
+        "+=0.5"
     );
 
     // Restart Animation on click
