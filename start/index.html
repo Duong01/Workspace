@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>💌</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #ff5f8f;
+            --pink-dark: #e74678;
+            --text: #633247;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            overflow: hidden;
+
+            font-family: "Be Vietnam Pro", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 255, 255, .7),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(255, 116, 160, .3),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ff9ab5,
+                    #ffc1d3,
+                    #ffd6e2
+                );
+
+            position: relative;
+        }
+
+        /* =================================
+           BACKGROUND
+        ================================= */
+
+        body::before,
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 280px;
+            height: 280px;
+
+            border-radius: 50%;
+
+            filter: blur(30px);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        body::before {
+            background: rgba(255, 255, 255, .35);
+
+            top: -100px;
+            left: -80px;
+
+            animation: float 8s ease-in-out infinite;
+        }
+
+        body::after {
+            background: rgba(255, 73, 132, .15);
+
+            right: -100px;
+            bottom: -100px;
+
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(25px, -20px);
+            }
+        }
+
+        /* =================================
+           MAIN CARD
+        ================================= */
+
+        .app {
+            position: relative;
+
+            z-index: 2;
+
+            width: min(92vw, 500px);
+
+            min-height: 350px;
+
+            padding: 38px 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, .28);
+
+            border: 1px solid rgba(255, 255, 255, .55);
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 25px 60px rgba(104, 36, 59, .18);
+
+            text-align: center;
+
+            animation: appShow .7s ease;
+        }
+
+        @keyframes appShow {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        /* =================================
+           BADGE
+        ================================= */
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 13px;
+
+            margin-bottom: 15px;
+
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, .5);
+
+            color: #8a465e;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        /* =================================
+           OPEN BUTTON
+        ================================= */
+
+        #openBtn {
+            width: 110px;
+            height: 110px;
+
+            margin-top: 20px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border: 0;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, .6);
+
+            cursor: pointer;
+
+            box-shadow:
+                0 15px 35px rgba(130, 40, 70, .15);
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+
+            animation: pulse 2.5s infinite;
+        }
+
+        #openBtn:hover {
+            transform:
+                translateY(-5px)
+                scale(1.04);
+        }
+
+        #openBtn:active {
+            transform: scale(.96);
+        }
+
+        #openBtn img {
+            width: 65px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 15px 35px rgba(130, 40, 70, .15),
+                    0 0 0 0 rgba(255, 95, 143, .15);
+            }
+
+            50% {
+                box-shadow:
+                    0 20px 40px rgba(130, 40, 70, .2),
+                    0 0 0 15px rgba(255, 95, 143, 0);
+            }
+        }
+
+        /* =================================
+           MESSAGE
+        ================================= */
+
+        #message {
+            width: 100%;
+
+            min-height: 120px;
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            margin-top: 10px;
+
+            padding: 25px;
+
+            border-radius: 22px;
+
+            background: rgba(255, 255, 255, .72);
+
+            color: var(--text);
+
+            font-size: clamp(17px, 4vw, 21px);
+
+            font-weight: 600;
+
+            line-height: 1.7;
+
+            box-shadow:
+                0 15px 35px rgba(115, 35, 62, .1);
+
+            opacity: 0;
+
+            transform:
+                translateY(20px)
+                scale(.96);
+
+            transition:
+                opacity .5s ease,
+                transform .5s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        #message.show {
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        /* =================================
+           FINISH BOX
+        ================================= */
+
+        #redirectBox {
+            width: 100%;
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 22px;
+
+            border-radius: 22px;
+
+            background: rgba(255, 255, 255, .65);
+
+            border: 1px solid rgba(255, 255, 255, .7);
+
+            box-shadow:
+                0 15px 35px rgba(115, 35, 62, .1);
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition:
+                opacity .5s ease,
+                transform .5s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        #redirectBox.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .finish-title {
+            margin: 0 0 6px;
+
+            color: #69334a;
+
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+        .redirect-text {
+            margin: 0 0 17px;
+
+            color: #805067;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =================================
+           ACTION BUTTONS
+        ================================= */
+
+        .finish-buttons {
+            display: flex;
+
+            gap: 10px;
+
+            width: 100%;
+        }
+
+        .finish-btn {
+            flex: 1;
+
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            min-height: 45px;
+
+            padding: 11px 15px;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .finish-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .finish-btn:active {
+            transform: scale(.97);
+        }
+
+        #messageLink {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f83,
+                    #ff789f
+                );
+
+            box-shadow:
+                0 10px 25px rgba(255, 79, 131, .25);
+        }
+
+        #replayBtn {
+            color: #754056;
+
+            background: rgba(255, 255, 255, .75);
+
+            border: 1px solid rgba(222, 121, 151, .18);
+        }
+
+        /* =================================
+           MUSIC MODAL
+        ================================= */
+
+        /*
+           QUAN TRỌNG:
+           Dialog nằm trên toàn bộ trang.
+        */
+
+        #musicDialog {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 9999;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            /*
+               Overlay tối rõ ràng
+            */
+
+            background:
+                rgba(30, 10, 20, .68);
+
+            /*
+               Làm phần phía sau mờ đi
+            */
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            opacity: 1;
+
+            transition:
+                opacity .4s ease;
+        }
+
+        #musicDialog.closing {
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+        .dialog {
+            position: relative;
+
+            z-index: 10000;
+
+            width: min(90vw, 380px);
+
+            padding: 30px 25px;
+
+            border-radius: 28px;
+
+            background:
+                rgba(255, 255, 255, .96);
+
+            border:
+                1px solid rgba(255, 255, 255, .9);
+
+            box-shadow:
+                0 30px 90px rgba(20, 5, 15, .4);
+
+            text-align: center;
+
+            animation:
+                dialogShow .5s
+                cubic-bezier(.2, .8, .2, 1);
+        }
+
+        @keyframes dialogShow {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.9);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        .music-icon {
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 15px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff759d,
+                    #ffabc2
+                );
+
+            color: white;
+
+            font-size: 28px;
+
+            box-shadow:
+                0 10px 25px rgba(255, 95, 143, .25);
+        }
+
+        .dialog h2 {
+            margin: 0 0 8px;
+
+            color: #642e44;
+
+            font-size: 21px;
+        }
+
+        .dialog p {
+            margin: 0 0 20px;
+
+            color: #875469;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .dialog-buttons {
+            display: flex;
+
+            gap: 10px;
+        }
+
+        .dialog-btn {
+            flex: 1;
+
+            padding: 12px;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+        #musicYes {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f83,
+                    #ff789f
+                );
+        }
+
+        #musicNo {
+            color: #754056;
+
+            background: #fce8ef;
+        }
+
+        .dialog-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 480px) {
+
+            .app {
+                padding: 30px 18px;
+
+                min-height: 330px;
+            }
+
+            #openBtn {
+                width: 100px;
+                height: 100px;
+            }
+
+            #message {
+                padding: 22px 17px;
+            }
+
+            .finish-buttons {
+                flex-direction: column;
+            }
+
+            .finish-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================
+         MUSIC DIALOG
+    ====================================== -->
+
+    <div id="musicDialog">
+
+        <div class="dialog">
+
+            <div class="music-icon">
+                🎧
+            </div>
+
+            <h2>
+                Nghe một chút nhạc nha?
+            </h2>
+
+            <p>
+                Bật nhạc lên nghe cho vui nhé ✨
+            </p>
+
+            <div class="dialog-buttons">
+
+                <button
+                    class="dialog-btn"
+                    id="musicYes">
+                    OK
+                </button>
+
+                <button
+                    class="dialog-btn"
+                    id="musicNo">
+                    NO
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         AUDIO
+    ====================================== -->
+
+    <audio
+        id="audio"
+        src="./p1.mp3"
+        preload="auto">
+    </audio>
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="app">
+
+        <div class="badge">
+            💌 Có tin nhắn mới
+        </div>
+
+
+        <!-- OPEN -->
+
+        <button
+            id="openBtn"
+            aria-label="Mở tin nhắn">
+
+            <img
+                src="./letters.png"
+                alt="Mở tin nhắn">
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+
+        <!-- =================================
+             FINISH
+        ================================== -->
+
+        <div id="redirectBox">
+
+            <h3 class="finish-title">
+                Vậy là hết rồi 😆
+            </h3>
+
+            <p class="redirect-text">
+                Nếu bạn xem rồi thì phản hồi lại mình nha,
+                Hoặc bạn có thể xem lại
+            </p>
+
+            <div class="finish-buttons">
+
+                <!-- Sang trang message -->
+
+                <a
+                    id="messageLink"
+                    class="finish-btn"
+                    href="https://m.me/duongitbg01">
+
+                    💬 Phản hồi
+
+                </a>
+
+
+                <!-- Chạy lại -->
+
+                <button
+                    id="replayBtn"
+                    class="finish-btn">
+
+                    👀 Xem lại
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        /* =====================================
+           NỘI DUNG
+        ====================================== */
+
+        const messages = [
+
+            "Hello bạn 👋",
+            "Mình tên là Dương",
+            "Mình cũng kết bạn với bạn cũng được 1 time rồi ",
+            "Nhưng nay mới có cơ hội chào bạn =)))",
+            "Mình có câu này!",
+            "Thất Tịch trời đổ mưa ngâu",
+            "Hỏi bạn ăn chè đậu đỏ ở đâu chưa nào? 😂"
+
+        ];
+
+
+        /* =====================================
+           ELEMENTS
+        ====================================== */
+
+        const musicDialog =
+            document.getElementById("musicDialog");
+
+        const musicYes =
+            document.getElementById("musicYes");
+
+        const musicNo =
+            document.getElementById("musicNo");
+
+        const audio =
+            document.getElementById("audio");
+
+        const openBtn =
+            document.getElementById("openBtn");
+
+        const message =
+            document.getElementById("message");
+
+        const redirectBox =
+            document.getElementById("redirectBox");
+
+        const replayBtn =
+            document.getElementById("replayBtn");
+
+
+        /* =====================================
+           MUSIC DIALOG
+        ====================================== */
+
+        musicYes.addEventListener("click", () => {
+
+            audio.volume = 0.35;
+
+            audio.play().catch(() => {});
+
+            closeDialog();
+
+        });
+
+
+        musicNo.addEventListener("click", () => {
+
+            closeDialog();
+
+        });
+
+
+        function closeDialog() {
+
+            musicDialog.classList.add("closing");
+
+            setTimeout(() => {
+
+                musicDialog.style.display = "none";
+
+            }, 400);
+
+        }
+
+
+        /* =====================================
+           OPEN MESSAGE
+        ====================================== */
+
+        let currentIndex = 0;
+
+        openBtn.addEventListener("click", () => {
+
+            startMessages();
+
+        });
+
+
+        function startMessages() {
+
+            currentIndex = 0;
+
+            openBtn.style.display = "none";
+
+            redirectBox.classList.remove("show");
+
+            redirectBox.style.display = "none";
+
+            message.style.display = "flex";
+
+            message.classList.remove("show");
+
+            setTimeout(() => {
+
+                showNextMessage();
+
+            }, 200);
+
+        }
+
+
+        /* =====================================
+           SHOW TEXT
+        ====================================== */
+
+        function showNextMessage() {
+
+            /*
+             * Đã chạy hết text
+             */
+
+            if (currentIndex >= messages.length) {
+
+                finishMessages();
+
+                return;
+
+            }
+
+
+            /*
+             * Fade out text cũ
+             */
+
+            message.classList.remove("show");
+
+
+            setTimeout(() => {
+
+                /*
+                 * Đổi text
+                 */
+
+                message.textContent =
+                    messages[currentIndex];
+
+
+                /*
+                 * Hiện text mới
+                 */
+
+                message.classList.add("show");
+
+                currentIndex++;
+
+
+                /*
+                 * Thời gian mỗi câu
+                 */
+
+                setTimeout(() => {
+
+                    message.classList.remove("show");
+
+
+                    setTimeout(() => {
+
+                        showNextMessage();
+
+                    }, 350);
+
+                }, 3200);
+
+            }, 350);
+
+        }
+
+
+        /* =====================================
+           FINISH
+        ====================================== */
+
+        function finishMessages() {
+
+            message.classList.remove("show");
+
+
+            setTimeout(() => {
+
+                message.style.display = "none";
+
+                redirectBox.style.display = "block";
+
+
+                requestAnimationFrame(() => {
+
+                    redirectBox.classList.add("show");
+
+                });
+
+            }, 450);
+
+        }
+
+
+        /* =====================================
+           XEM LẠI
+        ====================================== */
+
+        replayBtn.addEventListener("click", () => {
+
+            redirectBox.classList.remove("show");
+
+            setTimeout(() => {
+
+                redirectBox.style.display = "none";
+
+                startMessages();
+
+            }, 350);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
